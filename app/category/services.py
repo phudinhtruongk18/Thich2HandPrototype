@@ -32,7 +32,8 @@ def category_update(*, category: Category, data) -> Category:
 def get_category_by_id(pk: int) -> Category:
     category = Category.objects.get(pk=pk)
     # get view count and product of that category
-    category.views_count = category.()
+    # category.views_count = category.views_count + 1
+    
     category.products = category.products_set.all()
     return category
     

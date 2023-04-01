@@ -1,5 +1,5 @@
 from django import forms
-from .models import NomalUser
+from .models import User
 
 class RegisterForm(forms.ModelForm):
     first_name = forms.CharField(max_length=100)
@@ -16,7 +16,7 @@ class RegisterForm(forms.ModelForm):
     }))
 
     class Meta:
-        model = NomalUser
+        model = User
         fields = ['first_name', 'last_name', 'phone_number', 'email', 'password']
 
     def __init__(self,*args,**kwargs):

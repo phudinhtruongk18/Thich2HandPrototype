@@ -7,7 +7,7 @@ from django.template.loader import render_to_string
 from datetime import datetime, timedelta
 from typing import NoReturn
 
-from user.models import NomalUser
+from user.models import User
 
 
 def mailing_healchecl(plugins):
@@ -22,7 +22,7 @@ def mailing_healchecl(plugins):
 
 def report_user_daily() -> NoReturn:
     """ Daily report for admin the number of registered users """
-    user_in_day = NomalUser.objects.filter(date_joined__gte=datetime.now()-timedelta(days=1))
+    user_in_day = User.objects.filter(date_joined__gte=datetime.now()-timedelta(days=1))
 
     mail_subject = 'New user daily report'
     html_message = f"""

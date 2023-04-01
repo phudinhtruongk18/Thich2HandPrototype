@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from user.models import NomalUser
+from user.models import User
 
 class MyUserSerializer(serializers.ModelSerializer):
     """
@@ -10,7 +10,7 @@ class MyUserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(min_length=8, write_only=True)
 
     class Meta:
-        model = NomalUser
+        model = User
         fields = ('email', 'username', 'password')
         extra_kwargs = {'password': {'write_only': True}}
 

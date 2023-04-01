@@ -67,7 +67,7 @@ class MyAccountManager(BaseUserManager):
         return user
 
 
-class NomalUser(AbstractBaseUser):
+class User(AbstractBaseUser):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=50)
@@ -133,7 +133,7 @@ def user_signup_receiver(sender, instance, *args, **kwargs):
     """
     after saved in the database
     """
-
+    print("Hello wold")
     # print("user_post_save_receiver")
     # print(sender)
     # print(instance)
@@ -144,7 +144,7 @@ def user_signup_receiver(sender, instance, *args, **kwargs):
     # current_site = Site.objects.get_current()
     # token = default_token_generator.make_token(instance)
     # email = instance.email
-    send_mai_to_kid.delay(        
+    # send_mai_to_kid.delay(        
         # send pk to fix bug
 
                     # current_site=str(current_site), 
@@ -152,4 +152,4 @@ def user_signup_receiver(sender, instance, *args, **kwargs):
                     # domain=str(current_site.domain),
                     # uid=uid,
                     # token=token
-                    )
+                    # )

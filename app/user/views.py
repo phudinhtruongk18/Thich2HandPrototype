@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages, auth
 
 from .forms import RegisterForm
-from .models import NomalUser
+from .models import User
 
 from django.utils.http import urlsafe_base64_decode
 from django.contrib.auth.tokens import default_token_generator
@@ -20,7 +20,7 @@ def register(request):
             password = form.cleaned_data['password']
             username = email.split('@')[0]
 
-            user = NomalUser.objects.create_user(first_name=first_name,
+            user = User.objects.create_user(first_name=first_name,
                                                 last_name=last_name, email=email, username=username, password=password)
             user.phone_number = phone_number
             user.save()
@@ -61,7 +61,7 @@ def login(request):
 def activate(request, uidb64, token):
     try:
         uid = urlsafe_base64_decode(uidb64).decode()
-        user = NomalUser.objects.get(pk=uid)
+        user = User.objects.get(pk=uid)
     except Exception:
         user = None
 

@@ -7,7 +7,7 @@ from hitcount.models import HitCountMixin
 from hitcount.models import HitCount
 from sorl.thumbnail import get_thumbnail
 
-from user.models import NomalUser
+from user.models import User
 # from .my_exception import CategoryValidationError
 from django.core.exceptions import ValidationError
 
@@ -52,7 +52,7 @@ class MyNode(models.Model):
 
 class Category(HitCountMixin, MyNode):
     """A node Category"""
-    owner = models.ForeignKey(NomalUser, on_delete=models.SET_NULL,blank=False,null=True)
+    owner = models.ForeignKey(User, on_delete=models.SET_NULL,blank=False,null=True)
     name = models.CharField(max_length=200,unique=True)
     date_added = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(max_length=200,unique=True, editable=False)

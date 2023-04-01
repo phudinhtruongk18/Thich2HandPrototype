@@ -11,9 +11,9 @@ django.setup()
 
 from category.models import Category 
 from category.api.serializers import CustomCategorySerializer
-from user.models import NomalUser
+from user.models import User
 
-user = NomalUser.objects.first()
+user = User.objects.first()
 category =  Category.objects.create(name="test 2",owner=user)
 # serializer = CustomCategorySerializer(categorys)
 

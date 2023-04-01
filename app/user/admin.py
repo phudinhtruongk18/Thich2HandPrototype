@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .models import NomalUser
+from .models import User
 
 
 class AccountAdmin(UserAdmin):
@@ -22,4 +22,4 @@ class AccountAdmin(UserAdmin):
     fieldsets = ()
 
 
-admin.site.register(NomalUser, AccountAdmin)
+admin.site.register(User, AccountAdmin)

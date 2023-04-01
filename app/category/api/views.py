@@ -75,8 +75,8 @@ class CategoryUpdateDeleteDetail(generics.RetrieveUpdateDestroyAPIView):
 
         # get serilize va lay data
 
-        return Response(, status=status.HTTP_200_OK)
-        # return Response({'id':category.id}, status=status.HTTP_200_OK)
+        # return Response(, status=status.HTTP_200_OK)
+        return Response({'id':category.id}, status=status.HTTP_200_OK)
 
 
 # -------------------- LIST --------------------

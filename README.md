@@ -1,7 +1,6 @@
 # Thich2Hand
 
-My second hand shop
-(thich2hand.com)[https://thich2hand.com]
+My [thich2hand.com](https://thich2hand.com)
 
 DEV
 ============================

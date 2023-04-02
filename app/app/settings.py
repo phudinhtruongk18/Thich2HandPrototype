@@ -26,10 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = bool(int(os.environ.get('DEBUG', 0)))
 
 ALLOWED_HOSTS = [
-    "https://thich2hand.com/",
-    "http://thich2hand.com/",
-    "http://www.thich2hand.com/",
-    "https://www.thich2hand.com/",
+    "thich2hand.com",
 ]
 ALLOWED_HOSTS.extend(
     filter(

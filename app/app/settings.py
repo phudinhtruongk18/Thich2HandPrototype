@@ -28,7 +28,10 @@ DEBUG = bool(int(os.environ.get('DEBUG', 0)))
 ALLOWED_HOSTS = []
 ALLOWED_HOSTS.extend(
     filter(
-        None,
+        "https://thich2hand.com/",
+        "http://thich2hand.com/",
+        "http://www.thich2hand.com/",
+        "https://www.thich2hand.com/",
         os.environ.get('ALLOWED_HOSTS', '').split(','),
     )
 )

@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       
       - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.5.0
+        uses: webfactory/ssh-agent@v0.7.0
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }} 
+
       - name: Connect to VPS and pull code
         run: |
           ssh ${{ secrets.USER }}@${{ secrets.VPS_IP }} "cd ${{ secrets.REPO_PATH }} && git pull"

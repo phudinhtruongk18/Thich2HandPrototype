@@ -31,7 +31,7 @@ import debug_toolbar
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="Aram Catalog API",
+      title="Thich2Hand API",
       default_version='v1',
       description="HDWEBSOFT",
       terms_of_service="https://www.aramtool.com",

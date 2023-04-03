@@ -19,8 +19,8 @@ jobs:
 
       - name: Connect to VPS and pull code
         run: |
-          ssh root@170.187.226.164 "cd ~/root/Thich2Hand/ && git pull"
-      
+          ssh root@170.187.226.164
+      #  "cd ~/root/Thich2Hand && git pull"
       - name: Build Docker Compose
         run: |
           cd ${{ secrets.REPO_PATH }}

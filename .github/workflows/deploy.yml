@@ -30,3 +30,4 @@ jobs:
         run: |
           cd ${{ secrets.REPO_PATH }}
           docker-compose up -d
+

@@ -16,7 +16,6 @@ jobs:
         uses: webfactory/ssh-agent@v0.7.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }} 
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Connect to VPS and pull code
         run: |

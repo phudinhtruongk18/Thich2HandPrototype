@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 
-from category.views import CategoryListView
+# from category.views import CategoryListView
 
 # from rest_framework.authtoken.views import obtain_auth_token
 
@@ -44,26 +44,37 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('me/', include("user.urls")),
+    # path('me/', include("user.urls")),
 
-    # DRF
-    path('search/', include("search.urls")),
+    # # DRF
+    # path('search/', include("search.urls")),
 
-    # CATALOG AND PRODUCT URL
-    path('', CategoryListView.as_view(), name='category'),
-    path('category/', include("category.urls")),
-    path('product/', include("product.urls")),
-    path('comment/', include("comment.urls")),
+    # # CATALOG AND PRODUCT URL
+    # path('', CategoryListView.as_view(), name='category'),
+    # path('category/', include("category.urls")),
+    # path('product/', include("product.urls")),
+    # path('comment/', include("comment.urls")),
 
-    # swagger
-    path('swagger.json', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    # # swagger
+    # path('swagger.json', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    # path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 
 
     # OAuth
     path('', include('social_django.urls', namespace='social')),
     path('auth/', include('drf_social_oauth2.urls', namespace='drf')),
+
+    # just add
+    # path('shopping/', view_current.shopping_center, name='shopping_center'),
+    path('', include('store.urls')),
+    path('carts/', include('carts.urls')),
+    path('', include('taikhoan.urls')),
+    path('', include('orders.urls')),
+    path('', include('fakesnakegame.urls')),
+    # path('api/', include('api.urls')),
+    path('aramtool/', include('toolintro.urls')),
+    # path('model_ai/', include('binary_model.urls')),
 ]
 
 if settings.DEBUG:

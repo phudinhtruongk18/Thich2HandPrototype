@@ -1,0 +1,63 @@
+{% extends 'hangout/base.html' %}
+{% load static %}
+
+{% block logo_unique %}
+logo_game
+{% endblock %}
+
+{% block tieude %}
+Aram Tool | Cày Thuê Aram
+{% endblock %}
+
+{% block content %}
+<section class="section-intro padding-y-sm">
+    <div class="container">
+        {% include "includes/alerts.html" %}
+
+        <blockquote class="blockquote text-center">
+
+    <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading text-center font-italic">Aram Tool</h1>
+          <p class="lead text-muted">Automate Your Job!</p>
+          <p>
+            <a href="https://www.facebook.com/phudinhtruongk18" class="btn btn-primary my-2"><i class="fab fa-facebook-square"></i>Facebook</a>
+            <a href="mailto:caythuearam@gmail.com" class="btn btn-danger my-2"><i class="fas fa-envelope"></i>Gmail</a>
+          </p>
+        </div>
+    </section>
+
+
+        <div class="row">
+            {% for tool in tools %}
+            <div class="col-md-6">
+              <div class="card mb-4 box-shadow">
+                <a href="{{ tool.get_url }}" class="img-wrap">
+                  <img class="card-img-top" src="{{ tool.images.url }}" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                </a>
+                <div class="card-body">
+                  <a href="{{ tool.get_url }}">
+                    <h5 class="card-title ">{{ tool.name }}</h5>
+                  </a>
+                  <div class="d-flex">
+                      <p class="card-text p-2 w-100">{{ tool.description }}</p>
+                    {% comment %} <div class="d-flex justify-content-between align-items-center"> {% endcomment %}
+                      <a class="p-2" href="{{ tool.link }}">
+                        <i class="fab fa-youtube" style="color: red;"></i>
+                      </a>
+                    {% comment %} </div> {% endcomment %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+
+          </div>
+
+        </div>
+
+    </div>  <!-- container //  -->
+</section>
+
+{% endblock %}

@@ -11,7 +11,7 @@ django.setup()
 
 from category.models import Category 
 from category.api.serializers import CustomCategorySerializer
-from user.models import User
+from taikhoan.models import Taikhoan as User
 
 user = User.objects.first()
 category =  Category.objects.create(name="test 2",owner=user)

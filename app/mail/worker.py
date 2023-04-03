@@ -7,7 +7,7 @@ from django.template.loader import render_to_string
 from datetime import datetime, timedelta
 from typing import NoReturn
 
-from user.models import User
+from taikhoan.models import Taikhoan as User
 
 
 def mailing_healchecl(plugins):

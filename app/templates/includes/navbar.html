@@ -25,7 +25,7 @@
                 <div class="col-lg-2 col-md-3 col-6">
 
                     {% comment %}  {% endcomment %}
-                    <a href="{% url 'category:category' %}" class="brand-wrap">
+                    {% comment %} <a href="{% url 'category' %}" class="brand-wrap"> {% endcomment %}
                     {% comment %} <a href="" class="brand-wrap"> {% endcomment %}
 
                         <img class="logo" src="{% static './images/logo.png' %}">
@@ -46,8 +46,8 @@
                         </button>
                         <div class="dropdown-menu">
 
-                            <a class="dropdown-item" href="{% url 'user_manage_view' %}">{% trans 'Categories' %}</a>
-                            <a class="dropdown-item" href="{% url 'user_manage_view' %}">{% trans 'Products' %}</a>
+                            {% comment %} <a class="dropdown-item" href="{% url 'user_manage_view' %}">{% trans 'Categories' %}</a>
+                            <a class="dropdown-item" href="{% url 'user_manage_view' %}">{% trans 'Products' %}</a> {% endcomment %}
 
                             {% for category in links %}
                             <a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name }}</a>

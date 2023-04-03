@@ -1,0 +1,68 @@
+{% load static %}
+<!--load i18n every file -->
+{% load i18n %}
+
+<header class="section-header">
+<!--    <nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">-->
+<!--        <div class="container">-->
+<!--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4"-->
+<!--                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--                <span class="navbar-toggler-icon"></span>-->
+<!--            </button>-->
+<!--        </div> &lt;!&ndash; container //  &ndash;&gt;-->
+<!--    </nav>-->
+
+<section class="header-main border-bottom">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a href="{% url 'homepage' %}" class="brand-wrap">
+            <img class="logo" src="{% static './images/logo2.png' %}">
+        </a> <!-- brand-wrap.// -->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            {% comment %} <li class="nav-item">
+                <a class="nav-link" href="{% url 'homepage' %}">{% trans 'Home' %}<span class="sr-only">spna</span></a>
+            </li> {% endcomment %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'convert' %}">{% trans 'Convert' %}<span class="sr-only">spna</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'fakesnakegame' %}">{% trans 'FakeSnakeGame' %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'shopping_center' %}">{% trans 'Aram Shop' %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'introtool' %}">{% trans 'Aram Tool' %}</a>
+            </li>
+          </ul>
+
+            {% comment %} <div class="nav-item d-flex justify-content-end mb-3 mb-lg-0">
+                {% if user.id is None %}
+                <div class="widget-header">
+                    <small class="title text-muted">{% trans 'Welcome To Aram Site!' %}</small>
+                    <div>
+                        <a class="btn btn-secondary" href="{% url 'login' %}">Log in</a> <span class="dark-transp"> | </span>
+                        <a class="btn btn-secondary" href="{% url 'register' %}">{% trans ' Register' %}</a>
+                    </div>
+                </div>
+                {% else %}
+                <div class="widget-header">
+                    <small class="title text-muted">{% trans 'Welcome ' %}{{ user.first_name }}!</small>
+                    <div>
+                        <a class="btn btn-secondary" href="{% url 'dashboard' %}">{% trans 'Dashboard' %}</a> <span class="dark-transp"> | </span>
+                        <a class="btn btn-secondary" href="{% url 'logout' %}">{% trans 'Logout' %}</a>
+                    </div>
+                </div>
+                {% endif %}
+            </div> <!-- widgets-wrap.// --> {% endcomment %}
+
+        </div>
+</nav>
+</section> <!-- header-main .// -->
+
+</header> <!-- section-header.// -->

@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY', "https://docs.djangoproject#$%^&*()")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(int(os.environ.get('DEBUG', 0)))
@@ -74,22 +74,36 @@ INSTALLED_APPS = [
     # -----------COUNT-LIBRARY-------------------
     'hitcount',
     # -----------CORE-------------------
-    'core',
-    'common',
-    'user',
+    # 'core',
+    # 'common',
+    # 'user',
 
-    'category', 
-    'product',
-    'comment',
-    'mail',
+    # 'category', 
+    # 'product',
+    # 'comment',
+    # 'mail',
 
-    'search', 
+    # 'search', 
 
     # -----------HEAL-------------------
     'healchecker',
 
     # -----------Swagger-------------------
     'drf_yasg',
+        # thu vien ben trong frame work omg
+    # "crispy_forms",
+    # update right here
+    'hangout.apps.HangoutConfig',
+    'register.apps.RegisterConfig',
+    'taikhoan.apps.TaikhoanConfig',
+    'category.apps.CategoryConfig',
+    'store.apps.StoreConfig',
+    'carts.apps.CartsConfig',
+    'language.apps.LanguageConfig',
+    'orders.apps.OrdersConfig',
+    'toolintro',
+    # add
+
 ]
 
 
@@ -226,7 +240,7 @@ AUTHENTICATION_BACKENDS = (
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY", "ID")
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get("SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET", "SECRET KEY")
 
-AUTH_USER_MODEL = 'user.User'
+AUTH_USER_MODEL = 'taikhoan.Taikhoan'
 
 SOCIAL_AUTH_LOGIN_ERROR_URL = 'login'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'dashboard'
@@ -284,6 +298,8 @@ ATOMIC_REQUESTS = True
 
 if DEBUG:
 
+    ALLOWED_HOSTS.append('localhost')
+    
     INSTALLED_APPS += [
         'debug_toolbar',
     ]

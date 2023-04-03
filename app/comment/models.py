@@ -1,6 +1,6 @@
 from django.db import models
 from product.models import Product
-from user.models import User
+from taikhoan.models import Taikhoan as User
 from .my_validators import validate_owner
 
 class Comment(models.Model):

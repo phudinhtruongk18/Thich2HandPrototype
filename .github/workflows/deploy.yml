@@ -9,11 +9,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: executing remote ssh commands using password
+    - name: Deploy like god OMG 🚀 🐬
       uses: appleboy/ssh-action@v0.1.8
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         password: ${{ secrets.PASSWORD }}
         key: ${{ secrets.SSH_KEY }}
-        script: whoami
+        script: 
+        cd {{ secrets.REPO_PATH}}
+        git pull
+        docker-compose build
+        docker-compose up -d

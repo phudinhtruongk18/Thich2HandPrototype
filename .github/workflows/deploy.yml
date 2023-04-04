@@ -7,26 +7,24 @@ on:
 
 jobs:
   deploy:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      
-      - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.7.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }} 
-
       - name: Connect to VPS and pull code
-        run: |
-          ssh root@170.187.226.164 "cd ~/root/Thich2Hand && git pull"
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /home/deploy/Thich2Hand && git pull
 
-      - name: Build Docker Compose
-        run: |
-          cd ${{ secrets.REPO_PATH }}
-          docker-compose build
+      # - name: Build Docker Compose
+      #   run: |
+      #     cd ${{ secrets.REPO_PATH }}
+      #     docker-compose build
       
-      - name: Start Docker Compose
-        run: |
-          cd ${{ secrets.REPO_PATH }}
-          docker-compose up -d
+      # - name: Start Docker Compose
+      #   run: |
+      #     cd ${{ secrets.REPO_PATH }}
+      #     docker-compose up -d

@@ -16,7 +16,7 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         password: ${{ secrets.PASSWORD }}
         key: ${{ secrets.SSH_KEY }}
-        script: 
+        script: |
           cd ${{ secrets.REPO_PATH}}
           git pull
           docker-compose build

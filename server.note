@@ -27,3 +27,6 @@ sudo nginx -t
 
 # Restart Nginx
 sudo systemctl restart nginx
+
+
+docker exec -it proxy /bin/bash

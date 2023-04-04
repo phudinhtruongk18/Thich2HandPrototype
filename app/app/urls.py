@@ -31,8 +31,8 @@ schema_view = get_schema_view(
     openapi.Info(
         title="Thich2Hand API",
         default_version="v1",
-        description="HDWEBSOFT",
-        terms_of_service="https://www.aramtool.com",
+        description="thich2hand",
+        terms_of_service="https://www.thich2hand.com",
         contact=openapi.Contact(email="phudinhtruongk18@gmail.com"),
         license=openapi.License(name="Nike License"),
     ),

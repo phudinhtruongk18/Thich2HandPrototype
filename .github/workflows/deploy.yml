@@ -17,7 +17,8 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /home/deploy/Thich2Hand && git pull
+                  bash ${{ secrets.REPO_PATH }}/update.sh
+
 
       # - name: Build Docker Compose
       #   run: |

@@ -1,16 +1,16 @@
-from django.db import transaction
-from django.core.mail import EmailMultiAlternatives
-
 from core.exceptions import ApplicationError
+from django.core.mail import EmailMultiAlternatives
+from django.db import transaction
 from styleguide_example.common.services import model_update
 from styleguide_example.emails.models import Email
-
 
 
 # @transaction.atomic
 def email_send(email: Email) -> Email:
     if email.status != Email.Status.SENDING:
-        raise ApplicationError(f"Cannot send non-ready emails. Current status is {email.status}")
+        raise ApplicationError(
+            f"Cannot send non-ready emails. Current status is {email.status}"
+        )
 
     subject = email.subject
     from_email = "styleguide-example@hacksoft.io"
@@ -31,6 +31,6 @@ def email_send(email: Email) -> Email:
         data={
             "status": Email.Status.SENT,
             # "sent_at": timezone.now()
-        }
+        },
     )
     return email

@@ -1,5 +1,8 @@
 from django.db import models
+
 from .model_logistic import predict_using_model
+
+
 # Create your models here.
 class Record(models.Model):
     # GENDERS = (
@@ -7,8 +10,7 @@ class Record(models.Model):
     # (False, 'Female'),
     # )
 
-
-    name = models.CharField(max_length=255,blank=False)
+    name = models.CharField(max_length=255, blank=False)
     gender = models.BooleanField(null=False)
     age = models.IntegerField(null=False)
     salary = models.CharField(max_length=50)
@@ -19,9 +21,11 @@ class Record(models.Model):
         return self.name
 
     def predict_ads_click(self):
-        
+
         try:
-            self.purchased = predict_using_model(sex=self.gender,age=self.age,salary=self.salary)
+            self.purchased = predict_using_model(
+                sex=self.gender, age=self.age, salary=self.salary
+            )
             self.save()
             return True
         except Exception as e:

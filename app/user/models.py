@@ -1,35 +1,41 @@
 # signals imports
 from __future__ import absolute_import, unicode_literals
-from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-from django.db import models
 
+from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 # from app.my_celery import send_mai_to_kid
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.sites.models import Site
-from django.utils.http import urlsafe_base64_encode
-from django.utils.encoding import force_bytes
+from django.db import models
+from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode
 
 from .my_signal import user_signup
-
-from django.db.models.signals import (
-        post_save,
-        pre_save
-)
 
 
 # Create your models here.
 class MyAccountManager(BaseUserManager):
-    def create_user(self, username, email, password=None, first_name="", last_name="",is_from_google=False,*something,**extra_fields):
-        
+    def create_user(
+        self,
+        username,
+        email,
+        password=None,
+        first_name="",
+        last_name="",
+        is_from_google=False,
+        *something,
+        **extra_fields
+    ):
+
         if not email:
-            raise ValueError('Email address is required')
+            raise ValueError("Email address is required")
 
         if not username:
-            raise ValueError('User name is required')
+            raise ValueError("User name is required")
 
         is_active = False
-        
+
         if is_from_google:
             is_active = True
 
@@ -42,7 +48,7 @@ class MyAccountManager(BaseUserManager):
             is_staff=True,
             is_active=is_active,
         )
-        
+
         user.set_password(password)
         user.save(using=self._db)
         # print("User created")
@@ -83,9 +89,12 @@ class User(AbstractBaseUser):
     is_active = models.BooleanField(default=False)
     is_superadmin = models.BooleanField(default=False)
 
-    USERNAME_FIELD = 'email'  # Trường quyêt định khi login
-    REQUIRED_FIELDS = ['username', 'first_name',
-                       'last_name']  # Các trường yêu cầu khi đk tài khoản (mặc định đã có email), mặc định có password
+    USERNAME_FIELD = "email"  # Trường quyêt định khi login
+    REQUIRED_FIELDS = [
+        "username",
+        "first_name",
+        "last_name",
+    ]  # Các trường yêu cầu khi đk tài khoản (mặc định đã có email), mặc định có password
 
     objects = MyAccountManager()
 
@@ -102,7 +111,8 @@ class User(AbstractBaseUser):
         return str(self.first_name) + " " + str(self.last_name)
 
     # def is_authenticated(self):
-        # return True
+    # return True
+
 
 # @receiver(user_signup, sender=NomalUser)
 # def user_signup_receiver(sender, instance, *args, **kwargs):
@@ -128,6 +138,7 @@ class User(AbstractBaseUser):
 
 #     return user
 
+
 @receiver(user_signup, sender=MyAccountManager)
 def user_signup_receiver(sender, instance, *args, **kwargs):
     """
@@ -144,12 +155,12 @@ def user_signup_receiver(sender, instance, *args, **kwargs):
     # current_site = Site.objects.get_current()
     # token = default_token_generator.make_token(instance)
     # email = instance.email
-    # send_mai_to_kid.delay(        
-        # send pk to fix bug
+    # send_mai_to_kid.delay(
+    # send pk to fix bug
 
-                    # current_site=str(current_site), 
-                    # email=email,
-                    # domain=str(current_site.domain),
-                    # uid=uid,
-                    # token=token
-                    # )
+    # current_site=str(current_site),
+    # email=email,
+    # domain=str(current_site.domain),
+    # uid=uid,
+    # token=token
+    # )

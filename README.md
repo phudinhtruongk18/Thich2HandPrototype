@@ -1,6 +1,8 @@
 # Thich2Hand
 
-My [thich2hand.com](https://thich2hand.com)
+[thich2hand.com](https://thich2hand.com)
+
+Place to buy, exchange, and sell second hand.
 
 DEV
 ============================
@@ -26,3 +28,9 @@ Run deploy:
 docker-compose -f docker-compose-deploy.yml up
 ```
 
+
+# Pre-commit
+```
+pre-commit install
+pre-commit run
+```

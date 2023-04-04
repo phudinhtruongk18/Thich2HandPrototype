@@ -1,7 +1,7 @@
-from django.shortcuts import render ,redirect
+from django.contrib import messages
+from django.shortcuts import redirect, render
 
 from .forms import MauDangKi
-from django.contrib import messages
 
 # Create your views here.
 
@@ -19,4 +19,4 @@ def register(response):
         form = MauDangKi()
 
     messages.info(response, "Debug  " + "aaa" + str(response.POST))
-    return render(response,"register/register.html",{"form":form})
+    return render(response, "register/register.html", {"form": form})

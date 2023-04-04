@@ -1,10 +1,7 @@
+from common.models import BaseModel
 from django.db import models
 
 # Create your models here.
-
-from django.db import models
-
-from common.models import BaseModel
 
 
 class Email(BaseModel):
@@ -15,10 +12,7 @@ class Email(BaseModel):
         FAILED = "FAILED", "Failed"
 
     status = models.CharField(
-        max_length=255,
-        db_index=True,
-        choices=Status.choices,
-        default=Status.READY
+        max_length=255, db_index=True, choices=Status.choices, default=Status.READY
     )
 
     to = models.EmailField()

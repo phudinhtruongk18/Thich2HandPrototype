@@ -2,9 +2,9 @@ from django.test import TestCase
 
 from .healcheck import HealChecker
 
-class FukuViewTest(TestCase):
 
-    def test_sang(self,**kwargs):
+class FukuViewTest(TestCase):
+    def test_sang(self, **kwargs):
         # self.assertEqual(FukuView.get_json(), None)
         result = HealChecker()
         result.get_json()
@@ -14,13 +14,12 @@ class FukuViewTest(TestCase):
             print("some_database_is_not_working")
         print(response_json)
         expexcted_result = {
-                            'Cache backend: default':           'working', 
-                            'CeleryHealthCheckCelery':          'working', 
-                            'CeleryPingHealthCheck':            'working', 
-                            'DatabaseBackend':                  'working', 
-                            'DefaultFileStorageHealthCheck':    'working', 
-                            'MigrationsHealthCheck':            'working', 
-                            'RedisHealthCheck':                 'working'
-                            }
+            "Cache backend: default": "working",
+            "CeleryHealthCheckCelery": "working",
+            "CeleryPingHealthCheck": "working",
+            "DatabaseBackend": "working",
+            "DefaultFileStorageHealthCheck": "working",
+            "MigrationsHealthCheck": "working",
+            "RedisHealthCheck": "working",
+        }
         self.assertEqual(response_json, expexcted_result)
-        

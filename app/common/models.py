@@ -31,4 +31,3 @@ class BaseModel(models.Model):
 #                 check=Q(start_date__lt=F("end_date"))
 #             )
 #         ]
-

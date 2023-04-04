@@ -1,7 +1,8 @@
-from django.urls import path,include
+from django.urls import include, path
+
 # from .views import total
 
-app_name = 'healchecker'
+app_name = "healchecker"
 
 urlpatterns = [
     # path('',  FukuView.as_view(), name="fuk"),

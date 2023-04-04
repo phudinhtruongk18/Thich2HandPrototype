@@ -1,6 +1,6 @@
+class OwnerQuerySetMixin:
+    user_field = "owner"
 
-class OwnerQuerySetMixin():
-    user_field = 'owner'
     def get_queryset(self, *args, **kwargs):
 
         lookup_data = {}

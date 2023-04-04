@@ -1,18 +1,20 @@
-from rest_framework import serializers
 from comment.models import Comment
 from comment.my_validators import validate_owner
+from rest_framework import serializers
+
 
 class CommentSerializer(serializers.ModelSerializer):
     url = serializers.HyperlinkedIdentityField(
-        view_name='comment_detail',
-        lookup_field='pk'
+        view_name="comment_detail", lookup_field="pk"
     )
 
-    owner = serializers.SerializerMethodField('_owner',validators=[validate_owner],read_only=True)
+    owner = serializers.SerializerMethodField(
+        "_owner", validators=[validate_owner], read_only=True
+    )
 
     class Meta:
         model = Comment
-        fields = ('url','owner', 'product', 'content', 'created_at')
+        fields = ("url", "owner", "product", "content", "created_at")
 
     def _owner(self, obj):
         if obj.owner:

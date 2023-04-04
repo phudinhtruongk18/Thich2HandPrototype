@@ -7,22 +7,21 @@ CRUD product:
 - edit when owner or admin
 - delete when owner or admin
 """
-from rest_framework import generics
-from rest_framework import authentication
-
 from comment.models import Comment
-from .serializers import CommentSerializer
-
+from rest_framework import authentication, generics
 from rest_framework.authtoken.models import Token
 
+from .serializers import CommentSerializer
+
 # -------------------- SINGLE --------------------
+
 
 class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     # permission_classes = [permissions.DjangoObjectPermissions]
     authentication = (authentication.TokenAuthentication,)
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
-    lookup_field = 'pk'
+    lookup_field = "pk"
 
 
 class CommentListCreateAPIView(generics.CreateAPIView):

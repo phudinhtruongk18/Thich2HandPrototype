@@ -20,10 +20,10 @@
                 <div class="card">
 
                     {% include "includes/alerts.html" %}
-                    
+
                     {% if form.errors %}
                         {% for field in form %}
-                            {% for error in field.errors %} 
+                            {% for error in field.errors %}
                             <div class="alert alert-danger">
                                     <strong>{{ error|escape }}</strong>
                             </div>
@@ -39,7 +39,7 @@
                             <label>Product Name</label>
                             {{ form.name }}
                         </div>
-                        
+
                         <div class="form-group m-3">
                             <label>Select categories</label>
                             {{ form.categories }}
@@ -74,7 +74,7 @@
                                     {% endfor %}
                                 </div>
                             {% endif %}
-                        
+
                         <button type='submit' class="btn btn-primary m-3">Submit</button>
 
                     </form>

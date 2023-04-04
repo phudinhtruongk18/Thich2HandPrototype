@@ -2,6 +2,5 @@ from django.apps import AppConfig
 
 
 class HangoutConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'hangout'
-
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "hangout"

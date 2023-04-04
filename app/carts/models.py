@@ -1,8 +1,6 @@
 from django.db import models
-
-
 # Create your models here.
-from store.models import Product,Variation
+from store.models import Product, Variation
 from taikhoan.models import Taikhoan
 
 
@@ -18,7 +16,7 @@ class CartItem(models.Model):
     user = models.ForeignKey(Taikhoan, on_delete=models.CASCADE, null=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     variations = models.ManyToManyField(Variation, blank=True)
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE,null=True)
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, null=True)
     quantity = models.IntegerField()
     is_active = models.BooleanField(default=True)
 

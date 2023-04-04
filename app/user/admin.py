@@ -6,15 +6,29 @@ from .models import User
 
 
 class AccountAdmin(UserAdmin):
-    list_display = ('email', 'first_name', 'last_name', 'last_login', 'date_joined', 'is_active')
-    list_display_links = ('email', 'first_name', 'last_name')   # Các trường có gắn link dẫn đến trang detail
-    readonly_fields = ('last_login', 'date_joined')     # Chỉ cho phép đọc
-    ordering = ('-date_joined',)     # Sắp xếp theo chiều ngược
+    list_display = (
+        "email",
+        "first_name",
+        "last_name",
+        "last_login",
+        "date_joined",
+        "is_active",
+    )
+    list_display_links = (
+        "email",
+        "first_name",
+        "last_name",
+    )  # Các trường có gắn link dẫn đến trang detail
+    readonly_fields = ("last_login", "date_joined")  # Chỉ cho phép đọc
+    ordering = ("-date_joined",)  # Sắp xếp theo chiều ngược
 
     add_fieldsets = (
-        (None, {
-            'fields': ('email', 'password1', 'password2'),
-        }),
+        (
+            None,
+            {
+                "fields": ("email", "password1", "password2"),
+            },
+        ),
     )
     # Bắt buộc phải khai báo
     filter_horizontal = ()

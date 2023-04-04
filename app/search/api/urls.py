@@ -1,7 +1,7 @@
-from django.urls import path, include
+from django.urls import include, path
 
 from .views import SearchCategoryListView
 
 urlpatterns = [
-    path('category/', SearchCategoryListView.as_view(), name='search-category-list'),
+    path("category/", SearchCategoryListView.as_view(), name="search-category-list"),
 ]

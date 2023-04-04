@@ -1,17 +1,17 @@
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-from django.db import models
 from django.core.checks.messages import Error
-
+from django.db import models
 
 # Create your models here.
+
 
 class MyAccountManager(BaseUserManager):
     def create_user(self, first_name, last_name, username, email, password=None):
         if not email:
-            raise ValueError('Email address is required')
+            raise ValueError("Email address is required")
 
         if not username:
-            raise ValueError('User name is required')
+            raise ValueError("User name is required")
 
         # Tạo đối tượng user mới
         user = self.model(
@@ -50,7 +50,7 @@ class Taikhoan(AbstractBaseUser):
     phone_number = models.CharField(max_length=50)
 
     # mine
-    language = models.CharField(max_length=50,blank=True)
+    language = models.CharField(max_length=50, blank=True)
 
     # required
     date_joined = models.DateTimeField(auto_now_add=True)
@@ -60,9 +60,12 @@ class Taikhoan(AbstractBaseUser):
     is_active = models.BooleanField(default=False)
     is_superadmin = models.BooleanField(default=False)
 
-    USERNAME_FIELD = 'email'  # Trường quyêt định khi login
-    REQUIRED_FIELDS = ['username', 'first_name',
-                       'last_name']  # Các trường yêu cầu khi đk tài khoản (mặc định đã có email), mặc định có password
+    USERNAME_FIELD = "email"  # Trường quyêt định khi login
+    REQUIRED_FIELDS = [
+        "username",
+        "first_name",
+        "last_name",
+    ]  # Các trường yêu cầu khi đk tài khoản (mặc định đã có email), mặc định có password
 
     objects = MyAccountManager()
 

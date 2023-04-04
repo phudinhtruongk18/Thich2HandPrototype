@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /home/deploy/Thich2Hand 
+cd /home/deploy/Thich2Hand
 git pull

@@ -1,9 +1,9 @@
+from django.contrib import messages
 from django.shortcuts import render
+from language.views import language
+
 from .models import Cart, CartItem
 from .views import _cart_id
-
-from language.views import language
-from django.contrib import messages
 
 
 def counter(request):
@@ -11,7 +11,7 @@ def counter(request):
     language(request)
     # if language(request):
     #     print("success")
-    if 'admin' in request.path:
+    if "admin" in request.path:
         return {}
     else:
         try:

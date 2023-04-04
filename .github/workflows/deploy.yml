@@ -7,25 +7,13 @@ on:
 
 jobs:
   deploy:
-    name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Connect to VPS and pull code
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-                  bash ${{ secrets.REPO_PATH }}/update.sh
-
-
-      # - name: Build Docker Compose
-      #   run: |
-      #     cd ${{ secrets.REPO_PATH }}
-      #     docker-compose build
-      
-      # - name: Start Docker Compose
-      #   run: |
-      #     cd ${{ secrets.REPO_PATH }}
-      #     docker-compose up -d
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v0.1.8
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        password: ${{ secrets.PASSWORD }}
+        key: ${{ secrets.SSH_KEY }}
+        script: whoami

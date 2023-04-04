@@ -291,6 +291,7 @@ USE_TZ = True
 ATOMIC_REQUESTS = True
 
 if DEBUG:
+    STATIC_ROOT = "/vol/web/static"
 
     ALLOWED_HOSTS.append("localhost")
 
@@ -326,9 +327,9 @@ if DEBUG:
         "http://localhost:6969",
     ]
 
-    STATICFILES_DIRS = [
-        "/vol/web/static",
-    ]
+    # STATICFILES_DIRS = [
+    #     "/vol/web/static",
+    # ]
 
     SOCIAL_AUTH_ALLOWED_REDIRECT_HOSTS = ["localhost:8000"]
 else:

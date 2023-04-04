@@ -40,10 +40,15 @@ services:
     build:
       context: .
     container_name: django
-    restart: always
+    command: >
+      sh -c "python manage.py wait_for_db &&
+             python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - 8000:8000
     volumes:
       - ./app:/app
-      # - ./data/web:/vol/web
+      - ./data/web:/vol/web
     environment:
       - SECRET_KEY=devsecretkey
       - DEBUG=1
@@ -73,6 +78,7 @@ services:
     command: python3 -m timeit -n 3 "import time; time.sleep(99999)"
     volumes:
       - ./app:/app
+      - ./data/web:/vol/web
 
   celery:
     container_name: celery
@@ -82,6 +88,7 @@ services:
     command: celery -A app worker -l info --beat
     volumes:
       - ./app:/app
+      - ./data/web:/vol/web
     environment:
 
       - SECRET_KEY=devsecretkey
@@ -106,21 +113,6 @@ services:
       - app
       - redis
       - db
-
-  proxy:
-    container_name: proxy
-    build:
-      context: ./proxy
-    restart: always
-    depends_on:
-      - app
-    ports:
-      - 80:8000
-      - 443:443
-    volumes:
-      - ./data/web:/vol/static
-    networks:
-      - app-tier
 
 networks:
   app-tier:

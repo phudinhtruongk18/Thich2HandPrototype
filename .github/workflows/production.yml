@@ -32,7 +32,3 @@ jobs:
           docker-compose -f docker-compose-deploy.yml build
           docker-compose -f docker-compose-deploy.yml down
           docker-compose -f docker-compose-deploy.yml up -d
-      if: ${{ job.status == 'success' }}
-      on_failure:
-        continue-on-error: false
-        run: echo "Deployment failed!"

@@ -1,8 +1,12 @@
-# Thich2Hand
+# [thich2hand.com](https://thich2hand.com)
+# [dev.thich2hand.com](https://dev.thich2hand.com)
 
-[thich2hand.com](https://thich2hand.com)
 
-Place to buy, exchange, and sell second hand.
+Place to buy, exchange, and sell old book
+
+Project Purpose:
+============================
+test ci/cd, config port, security, docker, docker-compose in personal project
 
 DEV
 ============================

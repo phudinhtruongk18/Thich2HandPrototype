@@ -291,8 +291,13 @@ USE_TZ = True
 ATOMIC_REQUESTS = True
 
 if DEBUG:
-    STATIC_ROOT = "/vol/web/static"
-
+    STATIC_WITH_DJANGO = os.environ.get("STATIC_WITH_DJANGO", False)
+    if STATIC_WITH_DJANGO:
+        STATICFILES_DIRS = [
+            "/vol/web/static",
+        ]
+    else:
+        STATIC_ROOT = "/vol/web/static"
     ALLOWED_HOSTS.append("localhost")
 
     INSTALLED_APPS += [
@@ -326,10 +331,6 @@ if DEBUG:
         # js test
         "http://localhost:6969",
     ]
-
-    # STATICFILES_DIRS = [
-    #     "/vol/web/static",
-    # ]
 
     SOCIAL_AUTH_ALLOWED_REDIRECT_HOSTS = ["localhost:8000"]
 else:

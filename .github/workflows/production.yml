@@ -1,4 +1,14 @@
-name: Deploy to VPS
+# SSH_HOST
+# --------Production------------
+# SSH_USER
+# SSH_KEY
+# REPO_PATH
+# --------dev------------
+# SSH_USER_DEV
+# SSH_KEY_DEV
+# REPO_PATH_DEV
+
+name: Deploy Production
 
 on:
   push:
@@ -12,12 +22,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy like god OMG 🚀 🐬
+    - name: To the moon 🚀 🌑 🌒 🌓 🌔 🌕
       uses: appleboy/ssh-action@v0.1.8
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
-        password: ${{ secrets.PASSWORD }}
         key: ${{ secrets.SSH_KEY }}
         script: |
           cd ${{ secrets.REPO_PATH}}

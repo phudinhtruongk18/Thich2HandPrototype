@@ -1,5 +1,4 @@
 Django>=3.2.3,<3.3
-gunicorn==20.1.0
 
 django-mptt==0.13.4
 

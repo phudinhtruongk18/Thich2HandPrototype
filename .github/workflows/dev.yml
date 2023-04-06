@@ -25,6 +25,7 @@ jobs:
     - name: To the moon  🚀 🌑 🌒 🌓 🌔 🌕 (dev)
       uses: appleboy/ssh-action@v0.1.8
       with:
+        command_timeout: 40m
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER_DEV }}
         key: ${{ secrets.SSH_KEY_DEV }}
@@ -33,4 +34,4 @@ jobs:
           git checkout dev
           git pull
           docker-compose build
-          docker-compose up
+          docker-compose up -d

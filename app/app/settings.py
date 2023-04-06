@@ -27,6 +27,7 @@ DEBUG = bool(int(os.environ.get("DEBUG", 0)))
 
 ALLOWED_HOSTS = [
     "thich2hand.com",
+    "dev.thich2hand.com",
 ]
 ALLOWED_HOSTS.extend(
     filter(

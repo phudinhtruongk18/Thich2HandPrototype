@@ -14,9 +14,6 @@ on:
   push:
     branches:
       - dev
-  pull_request:
-    branches:
-      - dev
 
 jobs:
   deploy:
@@ -34,4 +31,5 @@ jobs:
           git checkout dev
           git pull
           docker-compose build
+          docker-compose down
           docker-compose up -d

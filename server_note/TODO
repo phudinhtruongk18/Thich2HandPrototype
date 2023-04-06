@@ -1,5 +1,6 @@
-KEEP MIGRATIONS
+DONE
 
+KEEP MIGRATIONS
 has to
 #  improve with ngiNx static files (remove in django)
 -> gunicon worker FOR BETTER PERFORMANCE
@@ -12,3 +13,10 @@ improve
 
 non now
 # set up cicd to vps
+
+TODO
+handle dev.thich2hand.com
+point port (api,postgre) in dev and product
+
+check may cai port lung tung xem co can mo khong
+<!-- redis, postGre, mail -->

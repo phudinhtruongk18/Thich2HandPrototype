@@ -4,23 +4,23 @@ services:
 
   redis:
     image: redis:alpine
-    container_name: redis-alpine
+    container_name: redis-alpine-dev
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 2s
       timeout: 3s
       retries: 10
-    ports:
-      - 6379:6380
+    # ports:
+    #   - 8379:6379
     networks:
       - app-tier
 
   db:
     image: postgres:13-alpine
-    container_name: postgres-13-alpine
+    container_name: postgres-13-alpine-dev
 
     ports:
-      - 6543:5432
+      - 7543:6432
     environment:
       - POSTGRES_DB=devdb
       - POSTGRES_USER=devuser
@@ -39,17 +39,18 @@ services:
   app:
     build:
       context: .
-    container_name: django
+    container_name: django-dev
     command: >
       sh -c "python manage.py wait_for_db &&
              python manage.py migrate &&
-             python manage.py runserver 0.0.0.0:8000"
+             python manage.py runserver 0.0.0.0:9000"
     ports:
-      - 8000:8000
+      - 82:9000
     volumes:
       - ./app:/app
       - ./data/web:/vol/web
     environment:
+      - STATIC_WITH_DJANGO=1
       - SECRET_KEY=devsecretkey
       - DEBUG=1
       - DB_HOST=db
@@ -72,7 +73,7 @@ services:
       - db
 
   api:
-    container_name: api
+    container_name: api-dev
     build:
       context: .
     command: python3 -m timeit -n 3 "import time; time.sleep(99999)"
@@ -81,7 +82,7 @@ services:
       - ./data/web:/vol/web
 
   celery:
-    container_name: celery
+    container_name: celery-dev
     restart: always
     build:
       context: .
@@ -105,7 +106,7 @@ services:
       - EMAIL_HOST=smtp.gmail.com
       - EMAIL_HOST_USER=caythuearam2@gmail.com
       - EMAIL_HOST_PASSWORD=matkhaula1
-      - EMAIL_PORT=587
+      - EMAIL_PORT=687
 
     networks:
       - app-tier

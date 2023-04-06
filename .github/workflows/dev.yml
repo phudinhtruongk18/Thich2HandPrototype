@@ -30,6 +30,7 @@ jobs:
           cd ${{ secrets.REPO_PATH_DEV }}
           git checkout dev
           git pull
-          docker-compose build
-          docker-compose down
-          docker-compose up -d
+          docker-compose -p dev build
+          docker-compose -p dev down
+          docker container prune -f
+          docker-compose -p dev up -d

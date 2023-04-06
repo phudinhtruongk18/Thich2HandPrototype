@@ -29,6 +29,7 @@ jobs:
         script: |
           cd ${{ secrets.REPO_PATH}}
           git pull
-          docker-compose -f docker-compose-deploy.yml build
-          docker-compose -f docker-compose-deploy.yml down
-          docker-compose -f docker-compose-deploy.yml up -d
+          docker-compose -p staging -f docker-compose-deploy.yml build
+          docker-compose -p staging -f docker-compose-deploy.yml down
+          docker container prune -f
+          docker-compose -p staging -f docker-compose-deploy.yml up -d

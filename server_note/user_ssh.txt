@@ -1,9 +1,0 @@
-# user deploy and ssh
-
-sudo useradd --create-home --user-group --shell /bin/bash --groups docker deploy
-sudo usermod --lock deploy
-
-sudo -i -u deploy
-ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -C "deploy@server"
-
-cat .ssh/id_ed25519.pub > .ssh/authorized_keys

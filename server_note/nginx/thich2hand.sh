@@ -40,7 +40,7 @@ server {
 EOF'
 
 # Create symbolic link to Nginx configuration file
-sudo ln -s /etc/nginx/sites-available/dev.thich2hand /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/myapp /etc/nginx/sites-enabled/
 
 # Test Nginx configuration file
 sudo nginx -t

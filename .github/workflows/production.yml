@@ -24,8 +24,8 @@ jobs:
     steps:
     - name: To the moon 🚀 🌑 🌒 🌓 🌔 🌕
       uses: appleboy/ssh-action@v0.1.8
-      command_timeout: 40m
       with:
+        command_timeout: 40m
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_KEY }}

@@ -1,4 +1,4 @@
-# [thich2hand.com](https://thich2hand.com)
+# [api.thich2hand.com](https://api.thich2hand.com)
 # [dev.thich2hand.com](https://dev.thich2hand.com)
 
 

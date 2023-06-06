@@ -4,7 +4,8 @@
 thich2hand_url="https://github.com/phudinhtruongk18/Thich2Hand"
 
 # install docker compose no confirm
-sudo curl -fsSL https://get.docker.com | bash
+# sudo curl -fsSL https://get.docker.com | bash
+sudo apt-get update && sudo apt-get install docker-compose -y
 # install nginx
 sudo apt-get install nginx -y
 

@@ -22,7 +22,7 @@ cat .ssh/id_dev_deploy.pub > .ssh/authorized_keys
 cat .ssh/id_dev_deploy
 
 
-sudo -i -u staging_deploy
+sudo -i -u dev_deploy
 git clone https://github.com/phudinhtruongk18/Thich2Hand
 
 exit

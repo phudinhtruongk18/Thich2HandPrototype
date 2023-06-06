@@ -67,7 +67,7 @@ urlpatterns = [
     path("carts/", include("carts.urls")),
     path("", include("taikhoan.urls")),
     path("", include("orders.urls")),
-    path("", include("fakesnakegame.urls")),
+    # path("", include("fakesnakegame.urls")),
     # path('api/', include('api.urls')),
     path("aramtool/", include("toolintro.urls")),
     # path('model_ai/', include('binary_model.urls')),

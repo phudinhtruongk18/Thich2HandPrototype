@@ -89,7 +89,6 @@ INSTALLED_APPS = [
     # thu vien ben trong frame work omg
     # "crispy_forms",
     # update right here
-    "hangout.apps.HangoutConfig",
     "register.apps.RegisterConfig",
     "taikhoan.apps.TaikhoanConfig",
     "category.apps.CategoryConfig",

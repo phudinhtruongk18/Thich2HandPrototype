@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "https://docs.djangoproject#$%^&*()")
 DEBUG = bool(int(os.environ.get("DEBUG", 0)))
 
 ALLOWED_HOSTS = [
-    "api.thich2hand.com",
+    "thich2hand.com",
     "dev.thich2hand.com",
 ]
 ALLOWED_HOSTS.extend(
